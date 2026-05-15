@@ -44,6 +44,12 @@ Export the report to JSON or HTML:
 apidrift diff specs/v1.yaml specs/v2.yaml --format html --output report.html
 ```
 
+Filter results by severity level:
+
+```bash
+apidrift diff specs/v1.yaml specs/v2.yaml --severity breaking
+```
+
 ---
 
 ## Supported Formats
