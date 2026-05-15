@@ -65,3 +65,14 @@ def _validate_spec(spec: dict[str, Any]) -> None:
 def get_version(spec: dict[str, Any]) -> str:
     """Return the OpenAPI/Swagger version string from a parsed spec."""
     return str(spec.get("openapi") or spec.get("swagger", "unknown"))
+
+
+def get_paths(spec: dict[str, Any]) -> dict[str, Any]:
+    """Return the paths mapping from a parsed spec.
+
+    Each key is a path template (e.g. '/users/{id}') and each value is a
+    path-item object containing the HTTP method definitions.
+
+    Returns an empty dict if the 'paths' field is absent or None.
+    """
+    return spec.get("paths") or {}
